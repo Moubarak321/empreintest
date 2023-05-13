@@ -75,7 +75,7 @@
         </div>
 
         <div class="row shuffle-wrapper portfolio-gallery reveal-on-scroll">
-            <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item reveal-on-scroll" data-groups="[&quot;cat1&quot;,&quot;cat2&quot;]">
+            {% comment %} <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item reveal-on-scroll" data-groups="[&quot;cat1&quot;,&quot;cat2&quot;]">
                 <div class="position-relative doctor-inner-box  ">
                     <div class="doctor-profile ">
                         <div class="doctor-img">
@@ -90,7 +90,7 @@
                         <p>Cardiology</p>
                     </div>
                 </div>  
-            </div>
+            </div> {% endcomment %}
 
             {% for meuble in meubles %}
             <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item reveal-on-scroll" data-groups="[&quot;{{meuble.categorie}}&quot;]">
@@ -98,14 +98,14 @@
                     <div class="doctor-profile">
                         <div class="doctor-img  Gallery">
                             <a class="" href="{{ meuble.image.url }}">
-                            <img src="{{ meuble.image.url }}" alt="doctor-image"
+                            <img src="{{ meuble.image.url }}" alt="{{ meuble.nom }}"
                                 class="img-fluid w-100">
                             </a>
                         </div>
                     </div>
                     <div class="content mt-3 ">
-                        <h4 class="mb-0"><a href="doctor-single.html">Harrision Samuel</a></h4>
-                        <p>Radiology</p>
+                        <h4 class="mb-0"><a href="doctor-single.html">{{ meuble.nom }}</a></h4>
+                        {% comment %} <p>Radiology</p> {% endcomment %}
                     </div>
                 </div>
             </div>
