@@ -1,0 +1,290 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block active1 %}class="nav-item"{% endblock active1 %}
+{% block active2 %}class="nav-item"{% endblock active2 %}
+{% block active4 %}class="nav-item "{% endblock active4 %}
+{% block active7 %}class="nav-item active"{% endblock active7 %}
+
+
+{% block content %}
+
+{% block banniere %}
+<section class="page-title bg-1">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block text-center">
+                    <span class="text-white">Découvrez nos différents meubles conçus pour vous procurer confort et quiétude</span>
+                    <h1 class="text-capitalize mb-5 text-lg">Bénin mobilier</h1>
+
+                    <!-- <ul class="list-inline breadcumb-nav">
+              <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+              <li class="list-inline-item"><span class="text-white">/</span></li>
+              <li class="list-inline-item"><a href="#" class="text-white-50">All Doctors</a></li>
+            </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock banniere %}
+
+
+<!-- portfolio -->
+<section class="section doctors ">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 text-center reveal-on-scroll">
+                <div class="section-title">
+                    <h2 style="color: #d61214;">Meubles</h2>
+                    <div class="divider mx-auto my-4"></div>
+                    <p>Nous vous procurons un gamme variée de meubles qui distinguent vos locaux parmi tant d'autres.  </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 text-center  mb-5 ">
+            <div class="btn-group btn-group-toggle reveal-on-scroll" data-toggle="buttons">
+                <label class="btn active ">
+                    <input type="radio" name="shuffle-filter" value="all" checked="checked" />Tous les types
+                </label>
+                {% for categorie in categories %}
+                <label class="btn ">
+                    <input type="radio" name="shuffle-filter" value="{{ categorie.nom }}" />{{ categorie.nom }}
+                </label>
+                {% endfor %}
+
+                {% comment %} <label class="btn">
+                    <input type="radio" name="shuffle-filter" value="cat2" />Sejour
+                </label>
+                <label class="btn">
+                    <input type="radio" name="shuffle-filter" value="cat3" />Tables
+                </label>
+                <label class="btn">
+                    <input type="radio" name="shuffle-filter" value="cat4" />Chaises
+                </label>
+                <label class="btn">
+                    <input type="radio" name="shuffle-filter" value="cat5" />Comptoirs
+                </label>
+                <label class="btn">
+                    <input type="radio" name="shuffle-filter" value="cat6" />Placards
+                </label> {% endcomment %}
+            </div>
+        </div>
+
+        <div class="row shuffle-wrapper portfolio-gallery reveal-on-scroll">
+            <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item reveal-on-scroll" data-groups="[&quot;cat1&quot;,&quot;cat2&quot;]">
+                <div class="position-relative doctor-inner-box  ">
+                    <div class="doctor-profile ">
+                        <div class="doctor-img">
+                            <a class="" href="{% static 'store/images/empreintes/boitier.jpg' %}">
+                            <img src="{% static 'store/images/empreintes/boitier.jpg' %}" alt="doctor-image"
+                                class="img-fluid w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content mt-3 ">
+                        <h4 class="mb-0"><a href="{% static 'store/doctor-single.html' %}">Thomas Henry</a></h4>
+                        <p>Cardiology</p>
+                    </div>
+                </div>  
+            </div>
+
+            {% for meuble in meubles %}
+            <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item reveal-on-scroll" data-groups="[&quot;{{meuble.categorie}}&quot;]">
+                <div class="position-relative doctor-inner-box">
+                    <div class="doctor-profile">
+                        <div class="doctor-img  Gallery">
+                            <a class="" href="{{ meuble.image.url }}">
+                            <img src="{{ meuble.image.url }}" alt="doctor-image"
+                                class="img-fluid w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content mt-3 ">
+                        <h4 class="mb-0"><a href="doctor-single.html">Harrision Samuel</a></h4>
+                        <p>Radiology</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% comment %} <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item reveal-on-scroll" data-groups="[&quot;cat3&quot;]">
+                <div class="position-relative doctor-inner-box">
+                    <div class="doctor-profile">
+                        <div class="doctor-img  ">
+                            <a class="" href="{% static 'store/images/empreintes/boitier.jpg' %}">
+                            <img src="{% static 'store/images/empreintes/boitier.jpg' %}" alt="doctor-image"
+                                class="img-fluid w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content mt-3">
+                        <h4 class="mb-0"><a href="doctor-single.html">Alexandar James</a></h4>
+                        <p>Dental</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item reveal-on-scroll" data-groups="[&quot;cat3&quot;,&quot;cat4&quot;]">
+                <div class="position-relative doctor-inner-box">
+                    <div class="doctor-profile">
+                        <div class="doctor-img  ">
+                            <a class="" href="{% static 'store/images/empreintes/boitier.jpg' %}">
+                            <img src="{% static 'store/images/empreintes/boitier.jpg' %}" alt="doctor-image"
+                                class="img-fluid w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content mt-3">
+                        <h4 class="mb-0"><a href="doctor-single.html">Edward john</a></h4>
+                        <p>Pediatry</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item reveal-on-scroll" data-groups="[&quot;cat5&quot;]">
+                <div class="position-relative doctor-inner-box">
+                    <div class="doctor-profile">
+                        <div class="doctor-img  ">
+                            <a class="" href="{% static 'store/images/empreintes/boitier.jpg' %}">
+                            <img src="{% static 'store/images/empreintes/boitier.jpg' %}" alt="doctor-image"
+                                class="img-fluid w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content mt-3">
+                        <h4 class="mb-0"><a href="doctor-single.html">Thomas Henry</a></h4>
+                        <p>Neurology</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item reveal-on-scroll" data-groups="[&quot;cat6&quot;]">
+                <div class="position-relative doctor-inner-box">
+                    <div class="doctor-profile">
+                        <div class="doctor-img  ">
+                            <a class="" href="{% static 'store/images/empreintes/boitier.jpg' %}">
+                            <img src="{% static 'store/images/empreintes/boitier.jpg' %}" alt="doctor-image"
+                                class="img-fluid w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content mt-3">
+                        <h4 class="mb-0"><a href="doctor-single.html">Henry samuel</a></h4>
+                        <p>Palmology</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item reveal-on-scroll" data-groups="[&quot;cat4&quot;]">
+                <div class="position-relative doctor-inner-box">
+                    <div class="doctor-profile">
+                        <div class="doctor-img  ">
+                            <a class="" href="{% static 'store/images/empreintes/boitier.jpg' %}">
+                            <img src="{% static 'store/images/empreintes/boitier.jpg' %}" alt="doctor-image"
+                                class="img-fluid w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content mt-3">
+                        <h4 class="mb-0"><a href="doctor-single.html">Thomas alexandar</a></h4>
+                        <p>Cardiology</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item reveal-on-scroll"
+                data-groups="[&quot;cat5&quot;,&quot;cat6&quot;,&quot;cat1&quot;]">
+                <div class="position-relative doctor-inner-box">
+                    <div class="doctor-profile">
+                        <div class="doctor-img  ">
+                            <a class="" href="{% static 'store/images/empreintes/boitier.jpg' %}">
+                            <img src="{% static 'store/images/empreintes/boitier.jpg' %}" alt="doctor-image"
+                                class="img-fluid w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content mt-3">
+                        <h4 class="mb-0"><a href="doctor-single.html">HarissonThomas </a></h4>
+                        <p>Traumatology</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item illustration reveal-on-scroll" data-groups="[&quot;cat2&quot;]">
+                <div class="position-relative doctor-inner-box">
+                    <div class="doctor-profile">
+                        <div class="doctor-img  ">
+                            <a class="" href="{% static 'store/images/empreintes/boitier.jpg' %}">
+                            <img src="{% static 'store/images/empreintes/boitier.jpg' %}" alt="doctor-image"
+                                class="img-fluid w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content mt-3">
+                        <h4 class="mb-0"><a href="doctor-single.html">Jonas Thomson</a></h4>
+                        <p>Cardiology</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item reveal-on-scroll"
+                data-groups="[&quot;cat5&quot;,&quot;cat6&quot;,&quot;cat1&quot;]">
+                <div class="position-relative doctor-inner-box">
+                    <div class="doctor-profile ">
+                        <div class="doctor-img  ">
+                            <a class="" href="{% static 'store/images/empreintes/boitier.jpg' %}">
+                            <img src="{% static 'store/images/empreintes/boitier.jpg' %}" alt="doctor-image"
+                                class="img-fluid w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content mt-3">
+                        <h4 class="mb-0"><a href="doctor-single.html">Henry Forth</a></h4>
+                        <p>hematology</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item illustration reveal-on-scroll" data-groups="[&quot;cat2&quot;]">
+                <div class="position-relative doctor-inner-box">
+                    <div class="doctor-profile">
+                        <div class="doctor-img  ">
+                            <a class="" href="{% static 'store/images/empreintes/boitier.jpg' %}">
+                            <img src="{% static 'store/images/empreintes/boitier.jpg' %}" alt="doctor-image"
+                                class="img-fluid w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content mt-3">
+                        <h4 class="mb-0"><a href="doctor-single.html">Thomas Henry</a></h4>
+                        <p>Dental</p>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+
+        </div>
+    </div>
+</section>
+<!-- /portfolio -->
+<section class="section cta-page">
+    <div class="container reveal-on-scroll">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="cta-content">
+                    <div class="divider mb-4"></div>
+                    <h2 class="mb-5 text-lg text-white">Nous avons le plaisir de vous offrir le <span class="title-color">confort par chacun de nos designs </span></h2>
+                    <a href="appoinment.html" class="btn btn-main-2 btn-round-full">Get appoinment<i
+                            class="icofont-simple-right  ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock content %}
