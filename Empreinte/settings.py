@@ -143,5 +143,3 @@ EMAIL_USE_TLS = True
 
 # username and pass : Empreintes.com12345
 # google code : mwpzojuwkcpdkznh Moubarabenon@gmail.om
-#email : empreintescom123@gmail.com
-#email pawd: empreintescom123@_
